@@ -8,8 +8,8 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody2D rb;
     Vector2 direction;
     [SerializeField] float moveSpeed = 7f;
-    
-    
+    public Vector2 PlayerDirection => direction;
+
 
 
     // Start is called before the first frame update

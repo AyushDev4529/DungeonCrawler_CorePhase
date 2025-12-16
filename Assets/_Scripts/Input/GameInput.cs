@@ -7,14 +7,18 @@ public class GameInput : MonoBehaviour
     //and providing access to movement input data. INTENT only not the button presses.
 
     PlayerInputActions playerInputActions;
-    Vector2 movementInput;
+    private Vector2 movementInput;
+    public bool IsInteractPressedThisFrame { get; private set; }
+
     public Vector2 MovementInput => movementInput;
+    
 
     // Start is called before the first frame update
     void Awake()
     {
         playerInputActions = new PlayerInputActions();
         playerInputActions.Enable();
+        IsInteractPressedThisFrame = false;
     }
     
     
@@ -22,7 +26,8 @@ public class GameInput : MonoBehaviour
     void Update()
     {
         movementInput = playerInputActions.Player.Move.ReadValue<Vector2>();
-        
-        Debug.Log("Movement Input: " + movementInput);
+        IsInteractPressedThisFrame = playerInputActions.Player.Interact.WasPressedThisFrame();
+
+        //Debug.Log("Is Intract: " + IsInteractPressedThisFrame);
     }
 }

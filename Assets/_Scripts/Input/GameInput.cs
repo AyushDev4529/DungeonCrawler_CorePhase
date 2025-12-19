@@ -25,9 +25,10 @@ public class GameInput : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         movementInput = playerInputActions.Player.Move.ReadValue<Vector2>();
         IsInteractPressedThisFrame = playerInputActions.Player.Interact.WasPressedThisFrame();
 
-        //Debug.Log("Is Intract: " + IsInteractPressedThisFrame);
+        //Debug.Log("Is Interact : " + IsInteractPressedThisFrame);
     }
 }

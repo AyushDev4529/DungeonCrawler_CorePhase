@@ -9,24 +9,6 @@ public class PlayerFacingDirection : MonoBehaviour
     [SerializeField] SpriteRenderer playerVisual;
     [SerializeField] PlayerMovement playerMovement;
     float directionX, directionY;
-
-    private void Awake()
-    {
-        if (playerVisual == null)
-        {
-            Debug.LogWarning("Player Visual SpriteRenderer is not assigned.");
-        }
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        if(playerMovement.PlayerDirection != Vector2.zero )
-        {
-            SetFacingDirection();
-        }
-    }
-
-    // Determine the facing direction based on movement input
     public enum FacingDirection
     {
         Up,
@@ -34,60 +16,77 @@ public class PlayerFacingDirection : MonoBehaviour
         Left,
         Right
     }
-    public FacingDirection CheckFacingDirection(Vector2 direction)
+
+    
+    private void Awake()
+    {
+        if (playerVisual == null)
+        {
+            Debug.LogWarning("Player Visual SpriteRenderer is not assigned.");
+        }
+    }
+
+   
+    // Update is called once per frame
+    void Update()
+    {
+        var newFacingDirection = CheckFacingDirection(playerMovement.PlayerDirection, currentDirection);
+            currentDirection = newFacingDirection;
+            ApplyFacingDirection();        
+       
+    }
+
+    // Determine the facing direction based on movement input
+    
+    public FacingDirection CheckFacingDirection(Vector2 direction, FacingDirection currentFacingDirection)
     {
         float bias = 0.01f; // Bias towards horizontal movement
-        directionX = math.abs(direction.x);
-        directionY = math.abs(direction.y);
-        if (directionX == 0 && directionY == 0)
+        directionX = Mathf.Abs(direction.x);
+        directionY = Mathf.Abs(direction.y);
+        // No movement input, do not change sprite
+        if (directionX < bias && directionY < bias) return currentFacingDirection;
+        // Determine dominant direction with bias
+        if (directionX > directionY+bias )
         {
-            // No movement input, do not change sprite
-            return FacingDirection.Down;
-        }
-        else if (directionX > directionY+bias )
-        {
-            if (direction.x > 0.5)
-            {
-                return FacingDirection.Right;
-            }
-            else
-            {
-                return FacingDirection.Left;
-            }
-        }
-        else
-        {
-            if (direction.y > 0.5)
-            {
-                return FacingDirection.Up;
-            }
-            else
-            {
-                return FacingDirection.Down;
-            }
-        }
-        
+            if (direction.x > 0) return FacingDirection.Right;
 
+            if(direction.x < 0) return FacingDirection.Left;
+
+        }
+        else 
+        {
+            if (direction.y > 0) return FacingDirection.Up;
+ 
+            if (direction.y < 0) return FacingDirection.Down;
+
+        }
+
+        return currentFacingDirection;
 
     }
-    public void SetFacingDirection()
+
+    private FacingDirection currentDirection = FacingDirection.Down;
+    public void ApplyFacingDirection()
     {
-        FacingDirection currentDirection = CheckFacingDirection(playerMovement.PlayerDirection);
-        if (currentDirection == FacingDirection.Left)
+        switch(currentDirection)
         {
-            playerVisual.flipX = true;
+            case FacingDirection.Up:
+                playerVisual.sprite = backSprite;
+                playerVisual.flipX = false;
+                break;
+            case FacingDirection.Down:
+                playerVisual.sprite = frontSprite;
+                playerVisual.flipX = false;
+                break;
+            case FacingDirection.Left:
+                playerVisual.sprite = sideSprite;
+                playerVisual.flipX = false;
+                break;
+            case FacingDirection.Right:
+                playerVisual.sprite = sideSprite;
+                playerVisual.flipX = true;
+                break;
         }
-        else if(currentDirection == FacingDirection.Right)
-        {
-            playerVisual.flipX = false;
-        }
-        playerVisual.sprite = currentDirection switch
-        {
-            FacingDirection.Up => backSprite,
-            FacingDirection.Down => frontSprite,
-            FacingDirection.Left or FacingDirection.Right => sideSprite,
-            _ => frontSprite,
-        };
 
     }
 }

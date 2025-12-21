@@ -6,8 +6,8 @@ public class Chest : MonoBehaviour, IInteractable
 
     public string ChestID{ get; private set; }
     public bool IsOpen { get; private set; }
-   
 
+    public Action OnChestOpened;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -23,15 +23,20 @@ public class Chest : MonoBehaviour, IInteractable
        return !IsOpen;
     }
 
-    public void Interact(GameObject gameObject)
+    public void Interact(GameObject interactor)
     {
-        if (!CanInteract()) return;
+        
+        if(CanInteract())
+        {
+            Debug.Log("Chest Interacted by " + interactor.name);
+            IsOpen = true;
+            OnChestOpened?.Invoke();
+        }
         else
         {
-            Debug.Log("Chest Interacted by " + gameObject.name);
-            
-            //OpenChest();
+            return;
         }
 
     }
+    
 }

@@ -11,7 +11,7 @@ public class ChestVisual : MonoBehaviour
     {
         chest.OnChestOpened += ChestOpen;
         if (chest.IsOpen) ChestOpen();
-        
+
     }
 
     private void OnDisable()
@@ -19,7 +19,7 @@ public class ChestVisual : MonoBehaviour
         chest.OnChestOpened -= ChestOpen;
         ChestClose();
     }
-    
+
     void ChestOpen()
     {
         Debug.Log("Chest Visual Opened");
@@ -29,8 +29,6 @@ public class ChestVisual : MonoBehaviour
     {
         chestVisual.sprite = closeChestSprite;
     }
-    
-
 
 }
 

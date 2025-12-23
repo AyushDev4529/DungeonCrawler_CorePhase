@@ -194,7 +194,7 @@ GameObject:
   - component: {fileID: 441407932}
   - component: {fileID: 441407934}
   - component: {fileID: 441407936}
-  m_Layer: 23
+  m_Layer: 6
   m_Name: PlayerVisualObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -390,7 +390,7 @@ GameObject:
   - component: {fileID: 637398470}
   - component: {fileID: 637398471}
   - component: {fileID: 637398474}
-  m_Layer: 23
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -533,6 +533,9 @@ MonoBehaviour:
   gameInput: {fileID: 637398467}
   interactRange: 1.5
   interactCollider: {fileID: 775917680}
+  interactableLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!61 &637398471
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -609,7 +612,7 @@ GameObject:
   m_Component:
   - component: {fileID: 775917679}
   - component: {fileID: 775917680}
-  m_Layer: 23
+  m_Layer: 6
   m_Name: InteractionOrigin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25733,7 +25736,7 @@ GameObject:
   m_Component:
   - component: {fileID: 936329500}
   - component: {fileID: 936329501}
-  m_Layer: 23
+  m_Layer: 6
   m_Name: PlayerShadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29496,7 +29499,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1293544595}
   - component: {fileID: 1293544596}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: InteractionRing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29588,7 +29591,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1536383393}
   - component: {fileID: 1536383394}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ChestVisual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29683,7 +29686,7 @@ GameObject:
   - component: {fileID: 1747785577}
   - component: {fileID: 1747785580}
   - component: {fileID: 1747785581}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: Chest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29719,6 +29722,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 369517a16b2849646aeb7f421bafca26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chest
+  items: {fileID: 11400000, guid: b04848372c0031345b7ae218ee2d2c17, type: 2}
 --- !u!61 &1747785579
 BoxCollider2D:
   m_ObjectHideFlags: 0

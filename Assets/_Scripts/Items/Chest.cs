@@ -7,6 +7,7 @@ public class Chest : MonoBehaviour, IInteractable
 
     public string ChestID { get; private set; }
     public bool IsOpen { get; private set; }
+    [SerializeField] ItemSO items;
 
 
     public Action OnChestOpened;
@@ -27,15 +28,21 @@ public class Chest : MonoBehaviour, IInteractable
 
     public void Interact(GameObject interactor)
     {
-
         if (CanInteract())
         {
-            //Debug.Log("Chest Interacted by " + interactor.name);
             IsOpen = true;
             OnChestOpened?.Invoke();
+
+            if (items != null)
+                Debug.Log($"Chest {ChestID} opened by {interactor.name}, containing item: {items.ItemName}");
+
+            else
+                Debug.Log($"Chest {ChestID} opened by {interactor.name}, but it is empty.");
+
         }
         else
         {
+            Debug.Log($"Chest {ChestID} is already open.");
             return;
         }
 

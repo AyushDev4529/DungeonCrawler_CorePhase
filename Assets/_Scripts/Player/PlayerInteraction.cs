@@ -6,8 +6,9 @@ public class PlayerInteraction : MonoBehaviour
     [SerializeField] private GameInput gameInput;
     [SerializeField] private float interactRange = 1.5f;
     [SerializeField] CircleCollider2D interactCollider;
-    
-    
+    [SerializeField] LayerMask interactableLayer;
+
+
 
 
     // Event triggered when an interactable is found or changed
@@ -46,7 +47,7 @@ public class PlayerInteraction : MonoBehaviour
     private void HandleInteractions()
     {
         // Check for interactable objects within range
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, interactRange);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, interactRange,interactableLayer);
 
         IInteractable closestInteractable = null;
         float closestDistance = interactRange;

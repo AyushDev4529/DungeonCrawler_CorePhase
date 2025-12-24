@@ -535,7 +535,7 @@ MonoBehaviour:
   interactCollider: {fileID: 775917680}
   interactableLayer:
     serializedVersion: 2
-    m_Bits: 8388608
+    m_Bits: 64
 --- !u!61 &637398471
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -25829,7 +25829,7 @@ GameObject:
   - component: {fileID: 1252309553}
   - component: {fileID: 1252309555}
   - component: {fileID: 1252309554}
-  m_Layer: 20
+  m_Layer: 0
   m_Name: Floor_Tilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25898,14 +25898,14 @@ TilemapRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: 0
   m_MaskInteraction: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0
-  m_Mode: 1
+  m_Mode: 0
   m_DetectChunkCullingBounds: 0
 --- !u!1839735485 &1252309555
 Tilemap:
@@ -26709,7 +26709,7 @@ GameObject:
   - component: {fileID: 1285910290}
   - component: {fileID: 1285910289}
   - component: {fileID: 1285910288}
-  m_Layer: 21
+  m_Layer: 0
   m_Name: Wall_Tilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26895,7 +26895,7 @@ TilemapRenderer:
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0
-  m_Mode: 1
+  m_Mode: 0
   m_DetectChunkCullingBounds: 0
 --- !u!1839735485 &1285910292
 Tilemap:
@@ -29499,7 +29499,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1293544595}
   - component: {fileID: 1293544596}
-  m_Layer: 23
+  m_Layer: 6
   m_Name: InteractionRing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29591,7 +29591,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1536383393}
   - component: {fileID: 1536383394}
-  m_Layer: 23
+  m_Layer: 6
   m_Name: ChestVisual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29686,7 +29686,7 @@ GameObject:
   - component: {fileID: 1747785577}
   - component: {fileID: 1747785580}
   - component: {fileID: 1747785581}
-  m_Layer: 23
+  m_Layer: 6
   m_Name: Chest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29814,7 +29814,7 @@ GameObject:
   - component: {fileID: 1861625184}
   - component: {fileID: 1861625183}
   - component: {fileID: 1861625182}
-  m_Layer: 22
+  m_Layer: 0
   m_Name: Wall_Tilemap_1stFloor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29890,7 +29890,7 @@ TilemapRenderer:
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0
-  m_Mode: 1
+  m_Mode: 0
   m_DetectChunkCullingBounds: 0
 --- !u!1839735485 &1861625181
 Tilemap:

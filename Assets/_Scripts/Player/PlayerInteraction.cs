@@ -17,11 +17,7 @@ public class PlayerInteraction : MonoBehaviour
     // Currently selected interactable in memory
     public IInteractable selectedIntractable;
 
-    private void Awake()
-    {
-        // Initialize the event to avoid null reference issues
-        OnInteractableFound = null;
-    }
+    
 
     // Start is called before the first frame update
     private void Start()

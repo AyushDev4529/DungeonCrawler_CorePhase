@@ -34,8 +34,12 @@ public class Chest : MonoBehaviour, IInteractable
             OnChestOpened?.Invoke();
 
             if (items != null)
-                Debug.Log($"Chest {ChestID} opened by {interactor.name}, containing item: {items.ItemName}");
-
+            {
+                //Debug.Log($"Chest {ChestID} opened by {interactor.name}, containing item: {items.ItemName}");
+                // Notify the game events system about the collected item
+                GameEvents.ItemCollected(items);
+                Debug.Log($"Item {items.ItemName} collected from Chest {ChestID}.");
+            }
             else
                 Debug.Log($"Chest {ChestID} opened by {interactor.name}, but it is empty.");
 
